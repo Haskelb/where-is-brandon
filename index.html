@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Where is Brandon?</title>
   <style>
     body {
@@ -85,6 +86,24 @@
   border-top: 1px solid #ccc;
   margin: 30px 0 20px;
   width: 80%;
+}
+    @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    flex: none;
+    width: 100%;
+  }
+
+  iframe {
+    height: 300px;
+  }
+
+  body {
+    padding: 20px;
+  }
 }
 
   </style>
