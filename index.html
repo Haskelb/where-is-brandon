@@ -153,28 +153,33 @@
   </div>
 
   <!-- JavaScript for dynamic time -->
-  <script>
-    function updateTimeDisplay() {
-      const now = new Date();
+<script>
+  function updateTimeDisplay() {
+    const now = new Date();
 
-      const options = {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        timeZoneName: 'short'
-      };
+    const options = {
+      timeZone: 'America/Mexico_City',
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'short'
+    };
 
-      const formatted = now.toLocaleString('en-US', options);
-      const localTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const formatted = new Intl.DateTimeFormat('en-US', options).format(now);
+    const localTime = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Mexico_City',
+      hour: '2-digit',
+      minute: '2-digit'
+    }).format(now);
 
-      document.getElementById("last-update").textContent = formatted;
-      document.getElementById("local-time").textContent = localTime;
-    }
+    document.getElementById("last-update").textContent = formatted;
+    document.getElementById("local-time").textContent = localTime;
+  }
 
-    window.onload = updateTimeDisplay;
-  </script>
+  window.onload = updateTimeDisplay;
+</script>
 </body>
 </html>
